@@ -1,4 +1,4 @@
-# finder
+# Histo
 
 A new Flutter project.
 
@@ -16,11 +16,6 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 <H2>Features</H2>
-<DIV class=book-info-will-learn-text>
-<UL>
-<LI>Decode JSON with models to communicate with remote services&nbsp; 
-<LI>Add Google maps, routes, and places to create comprehensive map applications&nbsp; 
-<LI>Manage state changes using the Scoped Model, Bloc and Redux architecture patterns </LI></UL></DIV>
 
 <H2>Api Used<H2>
 
@@ -30,8 +25,10 @@ samples, guidance on mobile development, and a full API reference.
 - [Url Launcher](https://pub.dartlang.org/packages/url_launcher)
 
 <H2>Images<H2>
-<img src = "images/Screenshot_20190412-025332.jpg" height = "300" width = "300">
+<img src = "IMG_5376.PNG" height = "300">
 <br>
-<img src = "images/Screenshot_20190412-025340.jpg" height = "300" width = "300">
+<img src = "IMG_5371.PNG" height = "300">
 <br>
-<img src = "images/Screenshot_20190412-025355_Maps.jpg" height = "300" width = "300">
+<img src = "IMG_5372.PNG" height = "300">
+ <br>
+<img src = "IMG_5373.PNG" height = "300">
