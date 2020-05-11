@@ -1,24 +1,24 @@
 import 'package:google_maps_webservice/places.dart';
 
-class CoffeeShopsData {
+class TouristLocationsData {
 
-  List<Shop> shopList;
+  List<LocationSpot> shopList;
 
-  CoffeeShopsData(this.shopList);
+  TouristLocationsData(this.shopList);
 
   static convertToShops(List<PlacesSearchResult> googlePlaces) {
 
-    List<Shop> shops = [];
+    List<LocationSpot> shops = [];
 
     googlePlaces.forEach((shop) {
       if(shop.photos != null)
-        shops.add(Shop.shopDetails(shop));
+        shops.add(LocationSpot.shopDetails(shop));
     });
-    return CoffeeShopsData(shops);
+    return TouristLocationsData(shops);
   }
 }
 
-class Shop {
+class LocationSpot {
 
   final String id;
   final String name;
@@ -26,7 +26,7 @@ class Shop {
   final double lon;
   final String photoRef;
 
-  Shop(this.id, this.name, this.lat, this.lon, this.photoRef);
+  LocationSpot(this.id, this.name, this.lat, this.lon, this.photoRef);
 
   static shopDetails(PlacesSearchResult places) {
     String id = places.id;
@@ -35,7 +35,7 @@ class Shop {
     double lon = places.geometry.location.lng;
     String photoRef = places.photos[0].photoReference;
 
-    return Shop(id, name, lat, lon, photoRef);
+    return LocationSpot(id, name, lat, lon, photoRef);
   }
 }
 

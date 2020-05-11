@@ -20,11 +20,13 @@ class Directions extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(left: 10.0, right: 5.0),
-              child: Text(
-                'Directions',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              child: Center(
+                child: Text(
+                  'Get Details',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

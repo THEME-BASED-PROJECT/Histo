@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:finder/directions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CoffeeCard extends StatelessWidget {
+class LocationCard extends StatelessWidget {
 
-  CoffeeCard({this.shopName, this.shopImage});
+  LocationCard({this.locationsName, this.locationsImage});
 
-  final String shopImage;
-  final String shopName;
+  final String locationsImage;
+  final String locationsName;
   static const _endpoint =
       'https://maps.googleapis.com/maps/api/place/photo';
 
   String _placesPhotoApi() {
     return _endpoint + '?maxheight=' + '150' + '&photoreference=' +
-        shopImage + '&key=' + apiKey;
+        locationsImage + '&key=' + apiKey;
   }
 
   void _callDirections() async {
     final url = 'https://www.google.com/maps/dir/?api=1&destination=' +
-        shopName;
+        locationsName;
 
     if(await canLaunch(url.toString()))
       await launch(url);
@@ -49,7 +49,7 @@ class CoffeeCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    shopName,
+                    locationsName,
                     style: TextStyle(
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,

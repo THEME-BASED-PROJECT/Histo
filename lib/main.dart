@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:finder/api/MyLocationApi.dart';
 import 'package:finder/model/MyLocationData.dart';
-import 'package:finder/model/CoffeeShopsData.dart';
-import 'package:finder/api/CoffeeShopsApi.dart';
-import 'package:finder/coffeeCard.dart';
+import 'package:finder/model/TouristLocationsData.dart';
+import 'package:finder/api/TouristLocationApi.dart';
+import 'package:finder/locationCard.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -33,21 +32,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   GoogleMapController mapController;
   MyLocationData _myLocationData;
-  CoffeeShopsData _shops;
+  TouristLocationsData _locations;
   Marker _selectedMarker;
-  String _shopName;
-  String _shopImage;
+  String _locationName;
+  String _locationImage;
 
   void _updateSelectedMarker(MarkerOptions changes) {
     mapController.updateMarker(_selectedMarker, changes);
   }
 
   void _onMarkerTapped(Marker marker) {
-    if(_selectedMarker != null) {
+    if (_selectedMarker != null) {
       _updateSelectedMarker(MarkerOptions(
         icon: BitmapDescriptor.defaultMarker,
       ));
@@ -55,37 +52,30 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _selectedMarker = marker;
     });
-    var selectedShop = _shops.shopList.singleWhere(
-            (shop) => shop.name == marker.options.infoWindowText.title,
-        orElse: () => null
-    );
-    _shopName = selectedShop.name;
-    _shopImage = selectedShop.photoRef;
-    _updateSelectedMarker(
-        MarkerOptions(
-          icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueGreen
-          ),
-          infoWindowText: InfoWindowText(_shopName, ''),
-        )
-    );
+    var selectedShop = _locations.shopList.singleWhere(
+        (shop) => shop.name == marker.options.infoWindowText.title,
+        orElse: () => null);
+    _locationName = selectedShop.name;
+    _locationImage = selectedShop.photoRef;
+    _updateSelectedMarker(MarkerOptions(
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      infoWindowText: InfoWindowText(_locationName, ''),
+    ));
   }
 
-  _addMarkers(CoffeeShopsData places) {
+  _addMarkers(TouristLocationsData places) {
     places.shopList.forEach((shop) {
       mapController.addMarker(
         MarkerOptions(
-          position: LatLng(
-              shop.lat,
-              shop.lon),
+          position: LatLng(shop.lat, shop.lon),
           infoWindowText: InfoWindowText(shop.name, ''),
         ),
       );
     });
   }
 
-  Future<CoffeeShopsData> _getCoffeeShops() async {
-    final shopsApi = CoffeeShopsApi.getInstance();
+  Future<TouristLocationsData> _getCoffeeShops() async {
+    final shopsApi = TouristLocationApi.getInstance();
     return await shopsApi.getCoffeeShops(this._myLocationData);
   }
 
@@ -105,44 +95,51 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _onMapCreated(GoogleMapController controller) async{
-    _shops = await _getCoffeeShops();
+  void _onMapCreated(GoogleMapController controller) async {
+    _locations = await _getCoffeeShops();
     setState(() {
       mapController = controller;
-      _addMarkers(_shops);
+      _addMarkers(_locations);
       mapController.onMarkerTapped.add(_onMarkerTapped);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        title: Text("Histo"),
+      ),
       body: Stack(
         children: <Widget>[
           new Center(
-            child: _myLocationData != null ? SizedBox(
-              child: GoogleMap(
-                onMapCreated: _onMapCreated,
-                options: GoogleMapOptions(
-                  cameraPosition: CameraPosition(
-                    target: LatLng(
-                      _myLocationData.lat,
-                      _myLocationData.lon,
+            child: _myLocationData != null
+                ? SizedBox(
+                    child: GoogleMap(
+                      onMapCreated: _onMapCreated,
+                      options: GoogleMapOptions(
+                        cameraPosition: CameraPosition(
+                          target: LatLng(
+                            _myLocationData.lat,
+                            _myLocationData.lon,
+                          ),
+                          zoom: 14.0,
+                        ),
+                      ),
                     ),
-                    zoom: 14.0,
+                  )
+                : CircularProgressIndicator(
+                    strokeWidth: 4.0,
+                    valueColor: AlwaysStoppedAnimation(Colors.white),
                   ),
-                ),
-              ),
-            ) : CircularProgressIndicator(
-              strokeWidth: 4.0,
-              valueColor: AlwaysStoppedAnimation(Colors.white),
-            ),
           ),
           Align(
-            child: _selectedMarker != null ? CoffeeCard(
-              shopImage: _shopImage,
-              shopName: _shopName,
-            ) :
-            Container(),
+            child: _selectedMarker != null
+                ? LocationCard(
+                    locationsImage: _locationImage,
+                    locationsName: _locationName,
+                  )
+                : Container(),
             alignment: Alignment.bottomCenter,
           ),
         ],
