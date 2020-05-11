@@ -24,7 +24,7 @@ samples, guidance on mobile development, and a full API reference.
 - [Google Maps : To integerate google maps](https://pub.dartlang.org/packages/google_maps_flutter)
 - [Google Maps Webservices : To get nearby shops](https://pub.dartlang.org/packages/google_maps_webservice)
 - [Url Launcher](https://pub.dartlang.org/packages/url_launcher)
-- [Youtube API](https://pub.dev/packages/youtube_player)
+- [Youtube API](https://pub.dev/packages/youtube_player_flutter)
 
 <H2>Images<H2>
 <img src = "IMG_5376.PNG" height = "300">
