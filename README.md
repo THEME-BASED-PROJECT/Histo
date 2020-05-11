@@ -26,9 +26,6 @@ samples, guidance on mobile development, and a full API reference.
 
 <H2>Images<H2>
 <img src = "IMG_5376.PNG" height = "300">
-<br>
 <img src = "IMG_5371.PNG" height = "300">
-<br>
 <img src = "IMG_5372.PNG" height = "300">
- <br>
 <img src = "IMG_5373.PNG" height = "300">
