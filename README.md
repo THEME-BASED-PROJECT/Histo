@@ -22,7 +22,7 @@ samples, guidance on mobile development, and a full API reference.
 
 - [Location : To get current location of the user](https://pub.dartlang.org/packages/location)  
 - [Google Maps : To integerate google maps](https://pub.dartlang.org/packages/google_maps_flutter)
-- [Google Maps Webservices : To get nearby shops](https://pub.dartlang.org/packages/google_maps_webservice)
+- [Google Maps Webservices : To get nearby tourist locations](https://pub.dartlang.org/packages/google_maps_webservice)
 - [Url Launcher](https://pub.dartlang.org/packages/url_launcher)
 - [Youtube API](https://pub.dev/packages/youtube_player_flutter)
 
