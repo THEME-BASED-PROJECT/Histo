@@ -20,7 +20,7 @@ View [online documentation](https://flutter.io/docs), which offers tutorials, sa
 Make sure thay you install and setup Flutter on your device to run the application and simulate on your virtual or mobile device
 
 If not then follow the link below
-#### `Installation Guide: https://flutter.dev/docs/get-started/install`
+#### `Installation Guide` https://flutter.dev/docs/get-started/install
 
 
 
@@ -39,8 +39,8 @@ Move into the directory where the project is present on your device from the ter
 Open the project in either Android Studio or Visual Studio Code
 If any of the above code editor is not installed on your device then follow the links below to have one
 
-#### `Android studio: https://developer.android.com/studio/`
-#### `Visual Studio code: https://code.visualstudio.com`
+#### `Android studio` https://developer.android.com/studio/
+#### `Visual Studio code` https://code.visualstudio.com
 
 
 
@@ -59,17 +59,16 @@ Make sure you have emulator (Android or iOS) installed on your device to run the
 
 If not, then follow the link below to install Android emulator
 
-#### `Setting up Android Virtual Device(AVD): https://developer.android.com/studio/run/managing-avds
-or https://flutter.dev/docs/get-started/install/macos#set-up-the-android-emulator`
+#### `Setting up Android Virtual Device(AVD)` https://developer.android.com/studio/run/managing-avds or https://flutter.dev/docs/get-started/install/macos#set-up-the-android-emulator
 
 If you are on the Mac, you could simulate on iOS device. Follow the steps to install iOS emulator
 
-#### `Setting up iOS simulator on Mac: https://flutter.dev/docs/get-started/install/macos#ios-setup`
+#### `Setting up iOS simulator on Mac` https://flutter.dev/docs/get-started/install/macos#ios-setup
 
 You could run project on your Mobile running Android or iOS device. Follow steps below
 
-#### `Setting your Android device: https://flutter.dev/docs/get-started/install/macos#set-up-your-android-device`
-#### `Setting up your iOS device: https://flutter.dev/docs/get-started/install/macos#deploy-to-ios-devices`
+#### `Setting your Android device` https://flutter.dev/docs/get-started/install/macos#set-up-your-android-device
+#### `Setting up your iOS device` https://flutter.dev/docs/get-started/install/macos#deploy-to-ios-devices
 
 
 
